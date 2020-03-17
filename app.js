@@ -33,6 +33,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const mapController = require('./controllers/map');
 
 /**
  * API keys and Passport configuration.
@@ -190,10 +191,6 @@ app.get('/auth/instagram', passport.authenticate('instagram', { scope: ['basic',
 app.get('/auth/instagram/callback', passport.authenticate('instagram', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });
-app.get('/auth/snapchat', passport.authenticate('snapchat'));
-app.get('/auth/snapchat/callback', passport.authenticate('snapchat', { failureRedirect: '/login' }), (req, res) => {
-  res.redirect(req.session.returnTo || '/');
-});
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'public_profile'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
@@ -242,6 +239,10 @@ app.get('/auth/quickbooks', passport.authorize('quickbooks', { scope: ['com.intu
 app.get('/auth/quickbooks/callback', passport.authorize('quickbooks', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo);
 });
+
+//Animal routes //these are routing tables. whatever in the user's bar, when they press enter, this will be it.
+app.get('/map', mapController.getMap);
+
 
 /**
  * Error Handler.

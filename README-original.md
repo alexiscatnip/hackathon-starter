@@ -1,15 +1,39 @@
 ![](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)
-FoodConnect Ecosystem
+Hackathon Starter
 =======================
 
 [![Dependency Status](https://david-dm.org/sahat/hackathon-starter/status.svg?style=flat)](https://david-dm.org/sahat/hackathon-starter) [![devDependencies Status](https://david-dm.org/sahat/hackathon-starter/dev-status.svg)](https://david-dm.org/sahat/hackathon-starter?type=dev) [![Build Status](https://travis-ci.org/sahat/hackathon-starter.svg?branch=master)](https://travis-ci.org/sahat/hackathon-starter) [![Join the chat at https://gitter.im/sahat/hackathon-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sahat/hackathon-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Many thanks to the following projects and contributors:**
+**Live Demo**: https://hackathon-starter.walcony.com
 
-https://github.com/sahat/hackathon-starter
+Jump to [What's new?](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)
 
+A boilerplate for **Node.js** web applications.
 
+If you have attended any hackathons in the past, then you know how much time it takes to
+get a project started: decide on what to build, pick a programming language, pick a web framework,
+pick a CSS framework. A while later, you might have an initial project up on GitHub and only then
+can other team members start contributing. Or how about doing something as simple as *Sign in with Facebook*
+authentication? You can spend hours on it if you are not familiar with how OAuth 2.0 works.
 
+When I started this project, my primary focus was on **simplicity** and **ease of use**.
+I also tried to make it as **generic** and **reusable** as possible to cover most use cases of hackathon web apps,
+without being too specific. In the worst case, you can use this as a learning guide for your projects,
+if for example you are only interested in **Sign in with Google** authentication and nothing else.
+
+### Testimonials
+
+> [**“Nice! That README alone is already gold!”**](https://www.producthunt.com/tech/hackathon-starter#comment-224732)<br>
+> — Adrian Le Bas
+
+> [**“Awesome. Simply awesome.”**](https://www.producthunt.com/tech/hackathon-starter#comment-224966)<br>
+> — Steven Rueter
+
+> [**“I'm using it for a year now and many projects, it's an awesome boilerplate and the project is well maintained!”**](https://www.producthunt.com/tech/hackathon-starter#comment-228610)<br>
+> — Kevin Granger
+
+> **“Small world with Sahat's project. We were using his hackathon starter for our hackathon this past weekend and got some prizes. Really handy repo!”**<br>
+> — Interview candidate for one of the companies I used to work with.
 
 <h4 align="center">Modern Theme</h4>
 
@@ -90,8 +114,24 @@ Prerequisites
 helpful for learning the basics of Node and Express. Alternatively,
 here is another great tutorial for complete beginners - [Getting Started With Node.js, Express, MongoDB](http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/).
 
+Getting Started
+---------------
 
+The easiest way to get started is to clone the repository:
 
+```bash
+# Get the latest snapshot
+git clone https://github.com/sahat/hackathon-starter.git myproject
+
+# Change directory
+cd myproject
+
+# Install NPM dependencies
+npm install
+
+# Then simply start your app
+node app.js
+```
 
 **Warning:** If you want to use some API that need https to work (for example Pinterest or facebook),
 you will need to download [ngrok](https://ngrok.com/).
@@ -146,6 +186,26 @@ e.g. `http://my-awesome-app.herokuapp.com` and
 The same goes for other providers.
 
 <hr>
+
+<img src="https://seeklogo.com/images/S/snapchat-logo-F20CDB1199-seeklogo.com.png" height="90">
+
+- Visit <a href="https://kit.snapchat.com/portal" target="_blank">Snap Kit Developer Portal</a>
+- Click on the **+** button to create an app
+- Enter a name for your app
+- Enable the scopes that you will want to use in your app
+- Click on the **Continue** button
+- Find the **Kits** section and make sure that **Login Kit** is enabled
+- Find the **Redirect URLs** section, click the **+ Add** button, and enter `http://localhost:8080/auth/snapchat/callback`
+- Find the **Development Environment** section. Click the **Generate** button next to the *Confidential OAuth2 Client* heading within it.
+- Copy and paste the generated *Private Key* and *OAuth2 Client ID* keys into `.env`
+- **Note:** *OAuth2 Client ID* is **SNAPCHAT_ID**, *Private Key* is **SNAPCHAT_SECRET** in `.env`
+- To prepare the app for submission, fill out the rest of the required fields: *Category*, *Description*, *Privacy Policy Url*, and *App Icon*
+
+**Note:** For production use, don't forget to:
+
+- generate a *Confidential OAuth2 Client* in the **Production Environment** and use the production *Private Key* and *OAuth2 Client ID*
+- add the production URL to **Redirect URLs** section, e.g. `http://my-awesome-app.herokuapp.com/auth/snapchat/callback`
+- submit the app for review and wait for approval
 
 <hr>
 
@@ -1488,3 +1548,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+| passport-twitch-new             | Sign-in with Twitch plugin.                                             |

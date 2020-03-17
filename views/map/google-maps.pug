@@ -9,24 +9,23 @@ block content
 
   .pb-2.mt-2.mb-4.border-bottom
     h2
-      i.fab.fa-google.fa-sm
-      | Google Maps API
+      i.fas.fa-map
+      | Map of organisations
 
   .btn-group.d-flex(role='group')
     a.btn.btn-primary(href='https://developers.google.com/maps/documentation/javascript/tutorial', target='_blank').w-100
       i.far.fa-check-square.fa-sm
-      | Getting Started
+      | Show Donors
     a.btn.btn-primary(href='https://console.developers.google.com/apis/dashboard', target='_blank').w-100
       i.fas.fa-laptop.fa-sm
-      | API Console
+      | Show Recepients
 
-  h3 Markers Example
+  h3 Map
 
   #map
 
   script.
     var map;
-    var landmarks = [];
     var superchargers = [
       {
         location: 'Fremont',
@@ -42,104 +41,13 @@ block content
         location: 'Gilroy',
         latitude: 37.02615,
         longitude: -121.56487
-      },
-      {
-        location: 'Harris Ranch',
-        latitude: 36.25316,
-        longitude: -120.23853
-      },
-      {
-        location: 'Mt. Shasta',
-        latitude: 41.30981,
-        longitude: -122.31766
-      },
-      {
-        location: 'Roseville',
-        latitude: 38.77344,
-        longitude: -121.26928
-      },
-      {
-        location: 'Truckee',
-        latitude: 39.32720,
-        longitude: -120.20643
-      },
-      {
-        location: 'Vacaville',
-        latitude: 38.36720,
-        longitude: -121.95601
-      },
-      {
-        location: 'Atascadero',
-        latitude: 35.48640,
-        longitude: -120.66558
-      },
-      {
-        location: 'Barstow',
-        latitude: 34.89120,
-        longitude: -116.99910
-      },
-      {
-        location: 'Buellton',
-        latitude: 34.61545,
-        longitude: -120.18856
-      },
-      {
-        location: 'Cabazon',
-        latitude: 33.92967,
-        longitude: -116.81649
-      },
-      {
-        location: 'Culver City',
-        latitude: 33.98465,
-        longitude: -118.39505
-      },
-      {
-        location: 'El Centro',
-        latitude: 32.76200,
-        longitude: -115.53197
-      },
-      {
-        location: 'Indio',
-        latitude: 33.74272,
-        longitude: -116.21316
-      },
-      {
-        location: 'Los Angeles',
-        latitude: 33.92142,
-        longitude: -118.32982
-      },
-      {
-        location: 'Needles',
-        latitude: 34.85083,
-        longitude: -114.62414
-      },
-
-      {
-        location: 'Oxnard',
-        latitude: 34.24075,
-        longitude: -119.17699
-      },
-      {
-        location: 'Rancho Cucamonga',
-        latitude: 34.11348,
-        longitude: -117.53257
-      },
-      {
-        location: 'San Juan Capistrano',
-        latitude: 33.49835,
-        longitude: -117.66287
-      },
-      {
-        location: 'Tejon Ranch',
-        latitude: 34.98661,
-        longitude: -118.94630
       }
     ];
 
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 1.353799, lng: 103.8122666 },
-        zoom: 11
+        center: { lat: 1.3146709, lng: 103.5633576 },
+        zoom: 10
       });
 
       superchargers.forEach(function(sc) {
