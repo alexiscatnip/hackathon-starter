@@ -1,28 +1,25 @@
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
+
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-  email: { type: String, unique: true },
-  password: String,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  emailVerificationToken: String,
-  emailVerified: Boolean,
-
+//list of food.
+const foodSchema = new mongoose.Schema({
   category: String, //food stype: staple, vegetable
   name: String,
   weight: Float32Array,
   use_by: Date,
+  donor_org: String, //organisation who donated
+
+}, { timestamps: true });
 
 
-  profile: {
-    name: String,
-    gender: String,
-    location: String,
-    website: String,
-    picture: String
-  }
+//list of donors.
+const donorSchema = new mongoose.Schema({
+  name: String,
+  location: ???, 
+  weight: Float32Array,
+  use_by: Date,
+  donor_org: String, //organisation who donated
+
 }, { timestamps: true });
 
 /**
