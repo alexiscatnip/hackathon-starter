@@ -1,26 +1,38 @@
 extends ../layout
 
 block content
+  form#calculate-route(name='calculate-route' action='#' method='get')
+  label(for='from') From:
+  input#from(type='text' name='from' required='required' placeholder='An address' size='30')
+  a#from-link(href='#') Get my position
+  br
+  label(for='to') To:
+  input#to(type='text' name='to' required='required' placeholder='Another address' size='30')
+  a#to-link(href='#') Get my position
+  br
+  input(type='submit')
+  input(type='reset')
+
   style.
     #map {
       width: 100%;
       height: 500px;
     }
-
   .pb-2.mt-2.mb-4.border-bottom
     h2
       i.fas.fa-map
-      | Map of Organisations
+      | Route
+    p For Recepient organisations to find routes to pickup based on what they need. 
 
-  .btn-group-md.justify-content-center.d-flex(role='group')
-    button.btn.btn-primary(onclick='showDonorMap()').w-200
-      i.fa.fa-hands-helping.fa-sm
-      | Show Donors
-    button.btn.btn-primary(onclick='showRecepientsMap()').w-200
-      i.fa.fa-hands-helping.fa-sm
-      | Show Recepients
+  //- .btn-group-md.justify-content-center.d-flex(role='group')
+  //-   button.btn.btn-primary(onclick='showDonorMap()').w-200
+  //-     i.fa.fa-hands-helping.fa-sm
+  //-     | Show Donors
+  //-   button.btn.btn-primary(onclick='showRecepientsMap()').w-200
+  //-     i.fa.fa-hands-helping.fa-sm
+  //-     | Show Recepients
 
-  h3#MapHeading Map of Organisations
+  h3#MapHeading 
 
   #map
 
@@ -47,7 +59,50 @@ block content
         placeId: 'ChIJVVVVfUQX2jERNs77TQKA_V0',
         latitude: 1.349319, 
         longitude: 103.853554
+      },
+      {
+        _id: 3,
+        name: 'Golden Mile Food Centre',
+        placeId: 'ChIJ04DTdbQZ2jERFt4kBQi-E60',
+        latitude: 1.349319, 
+        longitude: 103.853554
+      },
+      {
+        _id: 4,
+        name: 'FairPrice Dawson Rd',
+        placeId: 'ChIJiZI9ky0a2jERkfpCgUqARNE',
+        latitude: 1.349319, 
+        longitude: 103.853554
+      },
+      {
+        _id: 5,
+        name: 'FairPrice Upper Boon Keng Road',
+        placeId: 'ChIJ_VII8TMY2jERltw7xHdS4Vg',
+        latitude: 1.349319, 
+        longitude: 103.853554
+      },
+      {
+        _id: 5,
+        name: 'Giant Hypermarket - Tampines',
+        placeId: 'ChIJRawU9pk92jERgaijG0WpCUI',
+        latitude: 1.349319, 
+        longitude: 103.853554
+      },
+      {
+        _id: 5,
+        name: 'Sheng Siong Bedok Reservoir',
+        placeId: 'ChIJl4mMAFs92jERKIHPBGU34EE',
+        latitude: 1.349319, 
+        longitude: 103.853554
+      },
+      {
+        _id: 5,
+        name: 'Giant Supermarket - Paya Lebar Square',
+        placeId: 'ChIJsTh8ZxgY2jERSaBZ8PCSyHY',
+        latitude: 1.349319, 
+        longitude: 103.853554
       }
+
     ];
 
     var Donors = [//database for the donor organisations
@@ -71,7 +126,35 @@ block content
         placeId: 'ChIJCRIQh_AX2jEReCN6CK9Q2Pw',
         latitude: 1.333368,  
         longitude: 103.902278
-      }
+      },
+      {
+        _id: 3,
+        name: 'The Food Bank Singapore',
+        placeId: 'ChIJP-5FVW8b2jERD8rsuPgYkA8',
+        latitude: 1.333368,  
+        longitude: 103.902278
+      },  
+      {
+        _id: 4,
+        name: 'FREE FOOD FOR ALL LTD',
+        placeId: 'ChIJleO_ehAY2jERgxlisVUdDjw',
+        latitude: 1.333368,  
+        longitude: 103.902278
+      },
+      {
+        _id: 5,
+        name: 'TOUCH Community Services Bukit Merah',
+        placeId: 'ChIJY7bApdYb2jERq9xcMxkwCwc',
+        latitude: 1.333368,  
+        longitude: 103.902278
+      },
+      {
+        _id: 6,
+        name: 'Touch Community Services Ubi',
+        placeId: 'ChIJ2XmWnh0Y2jERb7cin8khcuA',
+        latitude: 1.333368,  
+        longitude: 103.902278
+      }      
     ];
     
     var FoodDonated = [//database for food that the donor organisations have put up.
@@ -165,20 +248,12 @@ block content
       putDonorsOnMap();
     }
 
-    var map, geocoder, service, markers, bounds, infoWindow;
     function initEmptyMap() {
-      // create map inside the #map div
       map = new google.maps.Map(document.getElementById('map'), {
-        // LatLng object used as center property value
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
+        center: { lat: 1.353799, lng: 103.8122666 },
+        zoom: 11
       });
-      // initialize classes
-      geocoder = new google.maps.Geocoder();
-      service = new google.maps.places.PlacesService(map);
-      infoWindow = new google.maps.InfoWindow();
-      // initialize array to hold map markers
-      markers = [];
+      
     }
 
     function getMarkerFromGooglePlaces(place_id,type) {
@@ -268,6 +343,8 @@ block content
       }
     }
 
-  script(async defer src=`https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&callback=initFullMap&libraries=places`)
-  //- script(async defer src=`https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&libraries=places`)
+
+    
+
+  script(async defer src=`https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&callback=initEmptyMap&libraries=places`)
   

@@ -244,14 +244,8 @@ block content
       
     }
 
-    function getMarkerFromGooglePlaces(place_id,type) {
-      var urllandmark1 = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%7c5680FC%7c000000&.png';
-      var urllandmark2 = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%7c03ff00%7c000000&.png';
-      if (type == 1) { 
-        var urllandmark = urllandmark1;
-      } else {
-        var urllandmark = urllandmark2;
-      }
+    function getMarkerFromGooglePlacesDonors(place_id,type) {
+      var urllandmark = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%7c5680FC%7c000000&.png';
       
       var request = {
         placeId: place_id,
@@ -284,6 +278,41 @@ block content
         }
       });
     }
+
+    function getMarkerFromGooglePlacesRecepients(place_id) {
+      var urllandmark = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%7c03ff00%7c000000&.png';
+      
+      var request = {
+        placeId: place_id,
+        fields: ['name', 'formatted_address', 'place_id', 'geometry']
+      };
+      
+      var infowindow = new google.maps.InfoWindow();
+      var service = new google.maps.places.PlacesService(map);
+
+      service.getDetails(request, function(place, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          var marker = new google.maps.Marker({
+            map: map,
+            icon: {
+              url: urllandmark,
+              scaledSize: new google.maps.Size(23, 33)
+            },
+            position: place.geometry.location
+          });
+
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+              //- 'Place ID: ' + place.place_id + '<br>' +
+              place.formatted_address + '</div>' +
+              "Food requested: "+ '</div>'+ '<br />'+
+              getFoodString() + '</div>');
+            infowindow.open(map, this);
+          });
+        }
+      });
+    }
     
     function showRecepientsMap() {
       initEmptyMap();
@@ -296,7 +325,7 @@ block content
         var temp_place_id = Recepients[i].placeId;
         if (temp_place_id != undefined) {
           console.log(`place_id: ${temp_place_id} !`);
-          getMarkerFromGooglePlaces(temp_place_id,0); //put the placeid in the rbackets
+          getMarkerFromGooglePlacesRecepients(temp_place_id); //put the placeid in the rbackets
       
         } 
       }
@@ -325,12 +354,11 @@ block content
         var temp_place_id = Donors[i].placeId;
         if (temp_place_id != undefined) {
           console.log(`place_id: ${temp_place_id} !`);
-          getMarkerFromGooglePlaces(temp_place_id,1); //put the placeid in the rbackets
+          getMarkerFromGooglePlacesDonors(temp_place_id); //put the placeid in the rbackets
       
         } 
       }
     }
 
   script(async defer src=`https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&callback=initFullMap&libraries=places`)
-  //- script(async defer src=`https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&libraries=places`)
   

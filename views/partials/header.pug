@@ -22,6 +22,8 @@
           a.nav-link(href='/donate') Donate
         li.nav-item(class=(title === 'Request') ? 'active' : undefined)
           a.nav-link(href='/request') Request
+        li.nav-item(class=(title === 'Route') ? 'active' : undefined)
+          a.nav-link(href='/route') Pickup Planner
       ul.nav.navbar-nav.ml-auto
         if !user
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)

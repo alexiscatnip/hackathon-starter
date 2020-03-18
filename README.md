@@ -4,24 +4,14 @@ FoodConnect Ecosystem
 
 [![Dependency Status](https://david-dm.org/sahat/hackathon-starter/status.svg?style=flat)](https://david-dm.org/sahat/hackathon-starter) [![devDependencies Status](https://david-dm.org/sahat/hackathon-starter/dev-status.svg)](https://david-dm.org/sahat/hackathon-starter?type=dev) [![Build Status](https://travis-ci.org/sahat/hackathon-starter.svg?branch=master)](https://travis-ci.org/sahat/hackathon-starter) [![Join the chat at https://gitter.im/sahat/hackathon-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sahat/hackathon-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
+
 **Many thanks to the following projects and contributors:**
 
 https://github.com/sahat/hackathon-starter
 
 
 
-
-<h4 align="center">Modern Theme</h4>
-
-![](https://lh6.googleusercontent.com/-KQTmCFNK6MM/U7OZpznjDuI/AAAAAAAAERc/h3jR27Uy1lE/w1366-h1006-no/Screenshot+2014-07-02+01.32.22.png)
-
-<h4 align="center">Flatly Bootstrap Theme</h4>
-
-![](https://lh5.googleusercontent.com/-oJ-7bSYisRY/U1a-WhK_LoI/AAAAAAAAECM/a04fVYgefzw/w1474-h1098-no/Screen+Shot+2014-04-22+at+3.08.33+PM.png)
-
-<h4 align="center">API Examples</h4>
-
-![](https://lh5.googleusercontent.com/-BJD2wK8CvC8/VLodBsyL-NI/AAAAAAAAEx0/SafE6o_qq_I/w1818-h1186-no/Screenshot%2B2015-01-17%2B00.25.49.png)
 
 Table of Contents
 -----------------
@@ -53,25 +43,13 @@ Table of Contents
 Features
 --------
 
-- **Local Authentication** using Email and Password
-- **OAuth 1.0a Authentication** via Twitter
-- **OAuth 2.0 Authentication** via Facebook, Google, GitHub, LinkedIn, Instagram
-- Flash notifications
-- MVC Project Structure
-- Node.js clusters support
-- Sass stylesheets (auto-compiled via middleware)
-- Bootstrap 4 + Extra Themes
-- Contact Form (powered by Mailgun, Sendgrid or Mandrill)
-- **Account Management**
- - Gravatar
- - Profile Details
- - Change Password
- - Forgot Password
- - Reset Password
- - Link multiple OAuth strategies to one account
- - Delete Account
-- CSRF protection
-- **API Examples**: Facebook, Foursquare, Last.fm, Tumblr, Twitter, Stripe, LinkedIn and more.
+- Donate: Donors can donate food, clearly tagging them by the type (vegetable/meat/etc.)
+- Request: Recepient organisations can specify amount of food of each category they require  (20kg of vegetables, etc.)
+- Pickup planner: Recepient organisations are to be able to sort the best donor locations that can best fulfill their food required (depending on what they requested in Request). They can notify the donor organisations about their arrival in advance and plan a route. Each donor location is a way point. 
+
+
+Stuff below is from original repo before fork
+-------------
 
 Prerequisites
 -------------
