@@ -1,13 +1,8 @@
 /**
- * GET /
+ * GET /map
  * Home page.
  */
-//Get map page
-// exports.getMap = (req, res) => {
-//   res.render('map', {
-//     title: 'map here!'
-//   });
-// };
+
 
 exports.getMap = (req, res) => {
   res.render('map/google-maps', {

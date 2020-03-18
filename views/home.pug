@@ -16,28 +16,26 @@ block content
       .col-md-6
         h2 New Here?
         p
-          a.btn.btn-raised(href='/register', role='button') See the map
-      .col-md-6
-        h2 Signup?
-        p
-          a.btn.btn-raised(href='/login', role='button') See the map
+          a.btn.btn-raised(href='/map', role='button') See the map
       .col-md-6
         h2 Login?
         p
-          a.btn.btn-raised(href='/login', role='button') See the map
+          a.btn.btn-raised(href='/login', role='button') Login
   
   else
     //- isuser
-    h2 Welcome back, (user)
-    h1.class#id(name='null_user')
-      | Welcome back,
+    h3
+    |
+    h3.class#id(name='null_user')
+      | Welcome back, !{user.email}
       = name
-
     .row
       .col-md-6
         p
-          a.btn.btn-raised(href='/map', role='button') See the map
-       
+          a.btn.btn-raised(href='/donate', role='button') Donate Page 
+          | 
+          a.btn.btn-raised(href='/request', role='button') Request Page 
+          
     
 
 

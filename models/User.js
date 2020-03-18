@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
   quickbooks: String,
   tokens: Array,
 
+  isDonor: Boolean,
+  isRecepient: Boolean,
+  
+
   profile: {
     name: String,
     gender: String,

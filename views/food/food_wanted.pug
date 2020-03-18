@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 All food-types requested
+  table(style='width:100%', border='1')
+    tr
+      th Id
+      th category
+      th Quantity
+    ul 
+      for food in food_wanted
+        tr 
+          td 0
+          td= food.name
+          td= food.date
+          td= food.category

@@ -31,9 +31,11 @@ dotenv.config({ path: '.env.NO_COMMIT' });
  */
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
+const foodController = require('./controllers/food');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const mapController = require('./controllers/map');
+// const dbController = require('./controllers/database');
 
 /**
  * API keys and Passport configuration.
@@ -137,6 +139,7 @@ app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
 app.post('/signup', userController.postSignup);
+
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
@@ -146,6 +149,14 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+app.get('/food_available', foodController.getFoodAvailable);
+app.get('/donate', foodController.getDonate);
+app.post('/donate', foodController.postDonate);
+app.get('/request', foodController.getRequest);
+app.post('/request', foodController.postRequest);
+
+// app.get('/user_food_dashboard', foodListController.getUserFoods);
 
 /**
  * API examples routes.

@@ -1,0 +1,51 @@
+extends ../layout
+
+//- variables = [-- Select --,aaaa] 
+//-           //- option(value='6') Staples
+//-           //- option(value='7') Vegetables
+//-           //- option(value='8') Fruits
+//-           //- option(value='9') Seafood
+//-           //- option(value='10') Meat,  Cereal 
+
+  
+block content
+  h1 Donation page
+  form(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label(class='col-md-2 col-form-label font-weight-bold', for='category') Category
+      .col-md-3
+        select#somethingType.select.form-control.input-lg(type='select') Selectme
+          option Staples
+          option Vegetables
+          option Fruits
+          option Seafood
+          option Meat
+          option Cereal
+        
+          //- #propertyType.select.form-control.input-md(form='category', name='category',id='category')
+        //- select
+        //-   each variable in ['a','b']
+        //-     option(value=variable.id) #{variable.var_name}
+    //- input.form-control(type='select', form='category', name='category',id='category')
+    //-       option(value='0') -- Select --
+    //-       option(value='6') Staples
+    //-       option(value='7') Vegetables
+    //-       option(value='8') Fruits
+    //-       option(value='9') Seafood
+    //-       option(value='10') Meat
+    //-       option(value='11') Cereal 
+          
+    .form-group.row
+      label(class='col-md-2 col-form-label font-weight-bold', for='name') Name of item
+      .col-md-3
+        input.form-control(type='text', name='name', id='name', autocomplete='name', autofocus, required, placeholder="Rice" )
+    .form-group.row
+      label(class='col-md-2 col-form-label font-weight-bold', for='message') Good until when? 
+      .col-md-3
+        input.form-control(type='date',name='date', id='date', required)
+    .form-group
+      .offset-md-2.col-md-8.p-1
+        button.btn.btn-primary(type='submit')
+          i.far.fa-envelope.fa-sm
+          | Send
