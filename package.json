@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@google/maps": "^1.1.0",
+    "@googlemaps/google-maps-services-js": "^2.3.1",
     "@ladjs/bootstrap-social": "^7.0.2",
     "@octokit/rest": "^17.0.0",
     "axios": "^0.19.2",

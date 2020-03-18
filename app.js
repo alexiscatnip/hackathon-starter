@@ -21,6 +21,9 @@ const multer = require('multer');
 
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
+const Client = require("@googlemaps/google-maps-services-js");
+
+
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
@@ -35,6 +38,8 @@ const foodController = require('./controllers/food');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const mapController = require('./controllers/map');
+
+const routeController = require('./controllers/routes');
 // const dbController = require('./controllers/database');
 
 /**
@@ -156,6 +161,7 @@ app.post('/donate', foodController.postDonate);
 app.get('/request', foodController.getRequest);
 app.post('/request', foodController.postRequest);
 
+app.get('/route', routeController.getRoute);
 // app.get('/user_food_dashboard', foodListController.getUserFoods);
 
 /**

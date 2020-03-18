@@ -47,50 +47,7 @@ block content
         placeId: 'ChIJVVVVfUQX2jERNs77TQKA_V0',
         latitude: 1.349319, 
         longitude: 103.853554
-      },
-      {
-        _id: 3,
-        name: 'Golden Mile Food Centre',
-        placeId: 'ChIJ04DTdbQZ2jERFt4kBQi-E60',
-        latitude: 1.349319, 
-        longitude: 103.853554
-      },
-      {
-        _id: 4,
-        name: 'FairPrice Dawson Rd',
-        placeId: 'ChIJiZI9ky0a2jERkfpCgUqARNE',
-        latitude: 1.349319, 
-        longitude: 103.853554
-      },
-      {
-        _id: 5,
-        name: 'FairPrice Upper Boon Keng Road',
-        placeId: 'ChIJ_VII8TMY2jERltw7xHdS4Vg',
-        latitude: 1.349319, 
-        longitude: 103.853554
-      },
-      {
-        _id: 5,
-        name: 'Giant Hypermarket - Tampines',
-        placeId: 'ChIJRawU9pk92jERgaijG0WpCUI',
-        latitude: 1.349319, 
-        longitude: 103.853554
-      },
-      {
-        _id: 5,
-        name: 'Sheng Siong Bedok Reservoir',
-        placeId: 'ChIJl4mMAFs92jERKIHPBGU34EE',
-        latitude: 1.349319, 
-        longitude: 103.853554
-      },
-      {
-        _id: 5,
-        name: 'Giant Supermarket - Paya Lebar Square',
-        placeId: 'ChIJsTh8ZxgY2jERSaBZ8PCSyHY',
-        latitude: 1.349319, 
-        longitude: 103.853554
       }
-
     ];
 
     var Donors = [//database for the donor organisations
@@ -114,35 +71,7 @@ block content
         placeId: 'ChIJCRIQh_AX2jEReCN6CK9Q2Pw',
         latitude: 1.333368,  
         longitude: 103.902278
-      },
-      {
-        _id: 3,
-        name: 'The Food Bank Singapore',
-        placeId: 'ChIJP-5FVW8b2jERD8rsuPgYkA8',
-        latitude: 1.333368,  
-        longitude: 103.902278
-      },  
-      {
-        _id: 4,
-        name: 'FREE FOOD FOR ALL LTD',
-        placeId: 'ChIJleO_ehAY2jERgxlisVUdDjw',
-        latitude: 1.333368,  
-        longitude: 103.902278
-      },
-      {
-        _id: 5,
-        name: 'TOUCH Community Services Bukit Merah',
-        placeId: 'ChIJY7bApdYb2jERq9xcMxkwCwc',
-        latitude: 1.333368,  
-        longitude: 103.902278
-      },
-      {
-        _id: 6,
-        name: 'Touch Community Services Ubi',
-        placeId: 'ChIJ2XmWnh0Y2jERb7cin8khcuA',
-        latitude: 1.333368,  
-        longitude: 103.902278
-      }      
+      }
     ];
     
     var FoodDonated = [//database for food that the donor organisations have put up.
@@ -236,12 +165,20 @@ block content
       putDonorsOnMap();
     }
 
+    var map, geocoder, service, markers, bounds, infoWindow;
     function initEmptyMap() {
+      // create map inside the #map div
       map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 1.353799, lng: 103.8122666 },
-        zoom: 11
+        // LatLng object used as center property value
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
       });
-      
+      // initialize classes
+      geocoder = new google.maps.Geocoder();
+      service = new google.maps.places.PlacesService(map);
+      infoWindow = new google.maps.InfoWindow();
+      // initialize array to hold map markers
+      markers = [];
     }
 
     function getMarkerFromGooglePlaces(place_id,type) {

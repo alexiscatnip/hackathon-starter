@@ -8,11 +8,13 @@ block content
     .form-group.row
       label(class='col-md-2 col-form-label font-weight-bold', for='category') Category
       .col-md-3
-        //- select#propertyType.select.form-control.input-md(form='category', name='category',id='category')
-        select
-          each variable in ['a','b']
-            option(value=variable.id) #{variable.var_name}
-    //- input.form-control(type='select', form='category', name='category',id='category')
+        select#somethingType.select.form-control.input-lg(type='select') Selectme
+          option Staples
+          option Vegetables
+          option Fruits
+          option Seafood
+          option Meat
+          option Cerealory',id='category')
     //-       option(value='0') -- Select --
     //-       option(value='6') Staples
     //-       option(value='7') Vegetables
