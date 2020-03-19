@@ -6,10 +6,28 @@ FoodConnect Ecosystem
 
 
 
-**Many thanks to the following projects and contributors:**
+**Many thanks to the following projects:**
 
 https://github.com/sahat/hackathon-starter
 
+
+
+Features
+--------
+
+- Donate: Donors can donate food, clearly tagging them by the type (vegetable/meat/etc.)
+- Request: Recepient organisations can specify amount of food of each category they require  (20kg of vegetables, etc.)
+- Pickup planner: Recepient organisations are to be able to sort the best donor locations that can best fulfill their food required (depending on what they requested in Request). They can notify the donor organisations about their arrival in advance and plan a route. Each donor location is a way point. 
+
+Screenshots
+--------
+<img src="docs/map_crop.png" width="400" height="400" />
+<img src="docs/routing_new_crop.png" width="400" height="400" />
+
+
+
+Stuff below is from original repo before fork
+-------------
 
 
 
@@ -40,16 +58,6 @@ Table of Contents
 - [Contributing](#contributing)
 - [License](#license)
 
-Features
---------
-
-- Donate: Donors can donate food, clearly tagging them by the type (vegetable/meat/etc.)
-- Request: Recepient organisations can specify amount of food of each category they require  (20kg of vegetables, etc.)
-- Pickup planner: Recepient organisations are to be able to sort the best donor locations that can best fulfill their food required (depending on what they requested in Request). They can notify the donor organisations about their arrival in advance and plan a route. Each donor location is a way point. 
-
-
-Stuff below is from original repo before fork
--------------
 
 Prerequisites
 -------------
