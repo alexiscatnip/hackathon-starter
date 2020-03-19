@@ -11,7 +11,6 @@ FoodConnect Ecosystem
 https://github.com/sahat/hackathon-starter
 
 
-
 Features
 --------
 
@@ -24,6 +23,27 @@ Screenshots
 <img src="docs/map_crop.png" width="400" height="400" />
 <img src="docs/routing_new_crop.png" width="400" height="400" />
 
+Quick start
+---------------
+
+Clone the repository:
+
+```bash
+# Clone repo, master branch
+git clone https://github.com/alexiscatnip/hackathon-starter.git myproject
+
+# Change directory
+cd myproject
+
+# Install NPM dependencies
+npm install
+
+#Make a copy of .env.example file, rename to .env.NO_COMMIT, then insert google api key at location:
+GOOGLE_MAP_API_KEY= `here`
+
+# start your app
+node app.js
+```
 
 
 Stuff below is from original repo before fork
