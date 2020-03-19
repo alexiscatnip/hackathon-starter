@@ -1,17 +1,44 @@
 extends ../layout
 
 block content
-  form#calculate-route(name='calculate-route' action='#' method='get')
-  label(for='from') From:
-  input#from(type='text' name='from' required='required' placeholder='An address' size='30')
-  a#from-link(href='#') Get my position
-  br
-  label(for='to') To:
-  input#to(type='text' name='to' required='required' placeholder='Another address' size='30')
-  a#to-link(href='#') Get my position
-  br
-  input(type='submit')
-  input(type='reset')
+  h2 Most relevant collection points
+
+  table(style='width:100%', border='1')
+    tr
+      th Donor Location
+      th Relevance %
+      th See route 
+    tr 
+      td FairPrice Upper Boon Keng Road 
+      td 89
+      td 
+        a(href='https://github.com') Go there
+    tr 
+      td Giant Hypermarket - Tampines
+      td 85
+      td 
+        a(href='https://github.com') Go there
+    tr 
+      td Sheng Siong Bedok Reservoir
+      td 79
+      td 
+        a(href='https://github.com') Go there
+    tr 
+      td Giant Supermarket - Paya Lebar Square
+      td 74
+      td  
+        a(href='https://github.com') Go there
+
+  //- form#calculate-route(name='calculate-route' action='#' method='get')
+  //- label(for='from') From:
+  //- input#from(type='text' name='from' required='required' placeholder='Recepient Address' size='30')
+  
+  //- br
+  //- label(for='to') To:
+  //- input#to(type='text' name='to' required='required' placeholder='Collection(donor) address' size='30')
+  //- br
+  //- input(type='submit')
+  //- input(type='reset')
 
   style.
     #map {
@@ -34,7 +61,10 @@ block content
 
   h3#MapHeading 
 
-  #map
+  img(src='/routes.png' alt='Fake gmaps' style='width:500px;height:300px;')
+
+
+  //- #map
 
   script.
     var map;
@@ -253,7 +283,6 @@ block content
         center: { lat: 1.353799, lng: 103.8122666 },
         zoom: 11
       });
-      
     }
 
     function getMarkerFromGooglePlaces(place_id,type) {
